@@ -1,4 +1,4 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,215 +9,157 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            background: #1f3c67; /* Solid fallback */
             background: linear-gradient(to right, #1f3c67, #3c6a91, #68a6cc);
             color: #f1f1f1;
-            position: relative;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
         }
+        
+        /* Optimized Background */
         .live-background {
-            position: absolute;
+            position: fixed; /* Changed to fixed so it doesn't grow with page height */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
+            pointer-events: none;
         }
+
         .data-point {
             position: absolute;
-            color: rgba(0, 204, 255, 0.7);
+            color: rgba(0, 204, 255, 0.6);
             font-size: 14px;
-            animation: float 12s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(0, 204, 255, 0.8);
+            font-family: monospace;
+            animation: float 10s linear forwards; /* Use 'forwards' */
         }
+
         @keyframes float {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-                transform: translateY(-50vh);
-            }
-            100% {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
         }
+
         header {
-            background: linear-gradient(135deg, #1d2b64, #f8cdda);
+            background: linear-gradient(135deg, #1d2b64, #3c6a91);
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
+
         nav {
             display: flex;
             justify-content: center;
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
         nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #f1f1f1;
             font-weight: bold;
-            transition: color 0.3s;
         }
-        nav a:hover {
-            color: #ff4081;
-        }
+
         section {
             padding: 40px;
             margin: 20px auto;
             max-width: 800px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px); /* Adds a modern look */
+            border-radius: 12px;
         }
-        section h2 {
-            border-bottom: 2px solid #ff4081;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        a {
-            color: #ff4081;
-        }
-        a:hover {
-            color: #ff1b6b;
-        }
+
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 14px;
+            padding: 12px 25px;
             color: white;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            border: none;
+            background: #ff4081;
             border-radius: 30px;
-            text-align: center;
             text-decoration: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
+            transition: 0.3s;
+            border: none;
         }
+
         .button:hover {
-            background: linear-gradient(135deg, #0056b3, #007bff);
-            transform: translateY(-2px);
+            background: #ff1b6b;
+            transform: scale(1.05);
         }
-        .resume-button {
-            text-align: center;
-            margin: 20px 0;
-        }
+
+        footer { padding: 20px; text-align: center; background: #1a1a1a; }
     </style>
 </head>
 <body>
     <div class="live-background" id="liveBackground"></div>
+
     <header>
         <h1>Prateek Kumar (Tripathi)</h1>
-        <p>Aspiring Data Analyst | Tech Enthusiast | Problem Solver | Ai Expert</p>
+        <p>Aspiring Data Analyst | AI Expert | Problem Solver</p>
     </header>
+
     <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        
         <a href="#contact">Contact</a>
     </nav>
+
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I am preparing to become a data analyst. I have a strong foundation in data analysis tools, technical systems, and leadership skills, with a passion for leveraging data to solve complex problems.</p>
+        <p>Aspiring Data Analyst with a strong foundation in Power BI, SQL, and Excel. Passionate about turning complex data into actionable insights.</p>
     </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <h3>Data Analysis Skills</h3>
-        <ul>
-            <li>Power BI</li>
-            <li>Advanced Excel</li>
-            <li>Tally Prime with GST and TDS</li>
-            <li>SQL</li>
-        </ul>
-        <h3>Technical Skills</h3>
-        <ul>
-            <li>PCB Designing</li>
-            <li>IoT Embedded Systems</li>
-            <li>Laptop Repair and Maintenance</li>
-        </ul>
-        <h3>Other Skills</h3>
-        <ul>
-            <li>Chat GPT and AI Tool Expert</li>
-            <li>Group Leadership</li>
-            <li>Effective Communication</li>
-            <li>Problem Solving</li>
-        </ul>
-    </section>
+
     <section id="projects">
         <h2>Projects</h2>
-        <p>Here are a few projects I've worked on:</p>
         <ul>
-            <li><strong>Data Visualization Dashboard:</strong> 
-            <br>Created an interactive dashboard in Power BI to analyze sales data.</li>
-            <li><strong>Excel Sales Dashboard:</strong>
-            <br> Created an interactive dashboard in Excel to analyze sales data.</li>
-            <li><strong>SQL Database Management:</strong>
-            <br> Designed and optimized a database for a small business.</li>
-            <li><strong>IoT-Based Home Automation:</strong>
-            <br> Developed a prototype for a smart home system using IoT with Google Assistant.</li>
-        </ul></br>
-        <a href="https://drive.google.com/drive/folders/1-4lrn9oiP-6fVgbsK2r3WwDJ57ddeYqi" class="button">View Projects</a>
-    </section>
-    <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>SMT Operator, Vivo Mobile:</strong> 
-            <br>Worked in SMT Deparment and was later promoted to the SMT Material Department.</li>
-            <li><strong>Intern, SMPS Innovation:</strong>
-            <br> Assisted in data analysis and report generation using Excel and Power BI and Sales .</li>
+            <li><strong>Power BI Dashboard:</strong> Interactive sales analysis.</li>
+            <li><strong>SQL Optimization:</strong> Business database management.</li>
         </ul>
+        <a href="https://drive.google.com/drive/folders/1-4lrn9oiP-6fVgbsK2r3WwDJ57ddeYqi" target="_blank" class="button">View All Projects</a>
     </section>
-    <section id="certificates">
-        <h2>Certificates</h2>
-        <ul>
-            <li>Advanced Excel Certification from STP Computer</li>
-            <li>Power BI Certification from SKILL COURSE</li>
-            <li>SQL Certification from SKILL COURSE</li>
-            <li>Tally Prime With GST & TDS - SKILL COURSE</li>
-            <li>DCA - MSD Computer</li>
-        </ul>
-    </section>
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Diploma in Electronics Engineering</strong> - Gov Poly. Mahoba, 2023</li>
-            <li><strong>High School</strong> - SICS Auraiya UP, 2018</li>
-        </ul>
-    </section>
+
     <section id="contact">
         <h2>Contact</h2>
         <p>Email: Tripathipratik180@Gmail.com</p>
-        <p>Phone: +91 8791897101</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/prateek-kumar-tripathi-16aa58344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Click Here</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/prateek-kumar-tripathi-16aa58344" style="color: #00ccff;">Visit Profile</a></p>
     </section>
-    <div class="resume-button">
-        <a href="https://drive.google.com/file/d/1-FqRcEJwPSeiBlrWEnOwzNr1DeMXLLHL/view?usp=drivesdk" class="button" target="_blank">Download Resume</a>
+
+    <div style="text-align: center; margin-bottom: 50px;">
+        <a href="https://drive.google.com/file/d/1-FqRcEJwPSeiBlrWEnOwzNr1DeMXLLHL/view?usp=sharing" class="button" target="_blank">📄 Download Resume (PDF)</a>
     </div>
+
     <footer>
-        <p>© 2025 Prateek Kumar (Tripathi). All rights reserved.</p>
+        <p>© 2025 Prateek Kumar (Tripathi)</p>
     </footer>
 
     <script>
-        const liveBackground = document.getElementById('liveBackground');
+        const bg = document.getElementById('liveBackground');
+        const dataSymbols = ['0', '1', '{ }', 'SQL', 'DATA', '📊'];
+
         function createDataPoint() {
-            const dataPoint = document.createElement('div');
-            dataPoint.classList.add('data-point');
+            // Limit number of elements to prevent lag
+            if (bg.childElementCount > 20) return; 
+
+            const el = document.createElement('div');
+            el.className = 'data-point';
+            el.innerText = dataSymbols[Math.floor(Math.random() * dataSymbols.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            
+            bg.appendChild(el);
+
+            // IMPORTANT: Remove the element after animation ends to keep the site fast
+            setTimeout(() => {
+                el.remove();
+            }, 10000);
+        }
+
+        // Create a new point every 1 second (slower frequency = better performance)
+        setInterval(createDataPoint, 1000);
+    </script>
+</body>
+</html>
